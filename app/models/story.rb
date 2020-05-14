@@ -1,3 +1,3 @@
 class Story < ApplicationRecord
-  attribute :is_published, :boolean
+  valiidates :name, :link, presence: true
 end
