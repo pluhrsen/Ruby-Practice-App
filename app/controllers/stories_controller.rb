@@ -18,6 +18,14 @@ class StoriesController < ApplicationController
     end
   end
 
+  def show
+    @story = Story.find(params[:id])
+  end
+
+  def to_param
+    "#{id}-#{name.gsub(/\W/, '-').downcase}"
+  end
+
   private
 
   def story_params
