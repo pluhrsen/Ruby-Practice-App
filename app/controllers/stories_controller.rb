@@ -9,9 +9,13 @@ class StoriesController < ApplicationController
 
   def create
     @story = Story.new(story_params)
-    @story.save
-    flash[:notice] = 'Story submission succeeded'
-    redirect_to stories_path
+    if @story.save
+      flash[:notice] = 'Story submission succeeded'
+      redirect_to stories_path
+    else
+      flash[:danger] = "I'm sorry. There was an issue with that request"
+      render action: 'new'
+    end
   end
 
   private

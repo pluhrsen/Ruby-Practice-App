@@ -1,3 +1,3 @@
 class Story < ApplicationRecord
-  valiidates :name, :link, presence: true
+  validates :name, :link, presence: true
 end
